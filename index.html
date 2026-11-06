@@ -200,6 +200,81 @@
             font-size: 24px;
             z-index: 1000;
         }
+
+
+
+/* FAIXA INFERIOR DE SUPORTE */
+#barra-suporte {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background: #000;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 12px;
+    box-sizing: border-box;
+    transition: height 0.25s ease;
+    touch-action: pan-y;
+}
+
+#barra-suporte.aberto {
+    height: 66px;
+}
+
+#aba-suporte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 30px;
+    padding: 0 12px;
+    color: #fff;
+    background: #202020;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#aba-suporte img {
+    width: 19px;
+    height: 19px;
+}
+
+#seta-suporte {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+}
+
+#barra-suporte.aberto #seta-suporte {
+    transform: rotate(180deg);
+}
+
+#whatsapp-suporte {
+    display: none;
+    margin-left: 12px;
+    width: 30px;
+    height: 30px;
+    background: #25D366;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+#whatsapp-suporte img {
+    width: 19px;
+    height: 19px;
+}
+
+#barra-suporte.aberto #whatsapp-suporte {
+    display: flex;
+}
+
+      
     ]]></b:skin>
 
   
