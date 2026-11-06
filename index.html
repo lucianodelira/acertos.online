@@ -2228,7 +2228,25 @@ document.addEventListener("DOMContentLoaded", function() {
   
 
 
+<!-- BARRA DE SUPORTE RECOLHÍVEL -->
+<div id='barra-suporte'>
 
+  <div id='aba-suporte' onclick='alternarSuporte()'>
+    <span id='seta-suporte'>⌃</span>
+    <span>SUPORTE</span>
+  </div>
+
+  <a id='whatsapp-suporte'
+     href='https://www.salvadorloterias.com?igsh=bjQ0aXMwbDJtcG1q'
+     target='_blank'
+     rel='noopener noreferrer'>
+
+    <img src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'
+         alt='WhatsApp'/>
+
+  </a>
+
+</div>
 
 
   
@@ -2254,16 +2272,48 @@ document.addEventListener("DOMContentLoaded", function() {
   
   
   
-    <!-- Botão do WhatsApp -->
-    <div class='whatsapp-button' onclick='window.open(&quot;https://www.salvadorloterias.com?igsh=bjQ0aXMwbDJtcG1q&quot;, &quot;_blank&quot;)'> 
-    <img alt='WhatsApp' src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'/>
-</div>
+    
   
   
   
   
   
-  
+  <script>
+(function() {
+
+  var barra = document.getElementById('barra-suporte');
+
+  if (!barra) return;
+
+  window.alternarSuporte = function() {
+    barra.classList.toggle('aberto');
+    document.body.classList.toggle(
+      'suporte-aberto',
+      barra.classList.contains('aberto')
+    );
+  };
+
+  var inicioY = 0;
+
+  barra.addEventListener('touchstart', function(e) {
+    inicioY = e.touches[0].clientY;
+  }, {passive: true});
+
+  barra.addEventListener('touchend', function(e) {
+    var fimY = e.changedTouches[0].clientY;
+    var diferenca = inicioY - fimY;
+
+    if (diferenca > 20 && !barra.classList.contains('aberto')) {
+      window.alternarSuporte();
+    }
+
+    if (diferenca < -20 && barra.classList.contains('aberto')) {
+      window.alternarSuporte();
+    }
+  }, {passive: true});
+
+})();
+</script>
   
   
   
